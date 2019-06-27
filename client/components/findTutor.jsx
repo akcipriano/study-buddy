@@ -1,6 +1,6 @@
 import React from'react';
 
-class StudyBuddyWithSubject extends React.Component {
+class FindTutor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
@@ -9,10 +9,10 @@ class StudyBuddyWithSubject extends React.Component {
   render() {
     return(
       <div>
-        Study Buddy With Subject
+        Find Tutor
       </div>
     )
   }
 }
 
-export default StudyBuddyWithSubject;
+export default FindTutor;
