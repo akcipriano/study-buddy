@@ -5,13 +5,13 @@ class StudyBuddy extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        place: '',
-        address: '',
-        city: '',
-        state: '',
-        date: '',
-        timeFrom: '',
-        timeTo: '',
+      place: '',
+      address: '',
+      city: '',
+      state: '',
+      date: '',
+      timeFrom: '',
+      timeTo: '',
       meetups: []
     }
 
@@ -20,7 +20,7 @@ class StudyBuddy extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/meetups', {
+    fetch('http://localhost:3000/meetups', {
       method: 'GET'
     }).then(res => res.json())
     .then(response => {this.setState({ meetups: response})})
