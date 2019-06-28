@@ -6,7 +6,7 @@ const MeetUps = (props) => {
   const timeFrom = convert(props.info.timeFrom);
   const timeTo = convert(props.info.timeTo);
 
-  if (props.subject) {
+  if (props.info.subject) {
     return (
       <div>
       {props.info.subject} <br />
