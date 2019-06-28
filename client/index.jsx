@@ -42,7 +42,7 @@ class Homepage extends React.Component {
             Find a Study Buddy
           </button> <br />
           <button onClick={this.handleStudyBuddyWithSubjectClick}>
-            Find a Study Buddy for a specific subject
+            Find a Study Buddy (specific topic)
           </button> <br />
           <button onClick={this.handleFindTutorClick}>
             Find a tutor
