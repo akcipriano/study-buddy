@@ -1,4 +1,5 @@
 import React from'react';
+import HomeButton from './homeButton.jsx';
 
 class FindTutor extends React.Component {
   constructor(props) {
@@ -10,6 +11,8 @@ class FindTutor extends React.Component {
     return(
       <div>
         Find Tutor
+        <br /><br />
+        <HomeButton handleHomePageButtonClick={this.props.handleHomePageButtonClick}/>
       </div>
     )
   }

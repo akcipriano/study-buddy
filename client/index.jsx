@@ -13,6 +13,7 @@ class Homepage extends React.Component {
     this.handleStudyBuddyClick = this.handleStudyBuddyClick.bind(this);
     this.handleStudyBuddyWithSubjectClick = this.handleStudyBuddyWithSubjectClick.bind(this);
     this.handleFindTutorClick = this.handleFindTutorClick.bind(this);
+    this.handleHomePageButtonClick = this.handleHomePageButtonClick.bind(this);
   }
 
   handleStudyBuddyClick() {
@@ -25,6 +26,10 @@ class Homepage extends React.Component {
 
   handleFindTutorClick() {
     this.setState({ currentPage: 'findTutor'});
+  }
+
+  handleHomePageButtonClick() {
+    this.setState({ currentPage: 'homepage'});
   }
 
   render() {
@@ -48,19 +53,19 @@ class Homepage extends React.Component {
 
     if (this.state.currentPage === 'studyBuddy') {
       return (
-        <StudyBuddy />
+        <StudyBuddy handleHomePageButtonClick={this.handleHomePageButtonClick}/>
       )
     }
 
     if (this.state.currentPage === 'studyBuddyWithSubject') {
       return (
-        <StudyBuddyWithSubject />
+        <StudyBuddyWithSubject handleHomePageButtonClick={this.handleHomePageButtonClick}/>
       )
     }
 
     if (this.state.currentPage === 'findTutor') {
       return (
-        <FindTutor />
+        <FindTutor handleHomePageButtonClick={this.handleHomePageButtonClick}/>
       )
     }
   }

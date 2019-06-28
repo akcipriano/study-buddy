@@ -1,5 +1,6 @@
 import React from'react';
 import MeetUps from './meetUps.jsx';
+import HomeButton from './homeButton.jsx';
 
 class StudyBuddy extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class StudyBuddy extends React.Component {
     fetch('http://localhost:3000/meetups', {
       method: 'GET'
     }).then(res => res.json())
-    .then(response => {this.setState({ meetups: response})})
+    .then(response => {this.setState({ meetups: response.reverse()})})
     .catch(error => console.error('Error:', error))
   }
 
@@ -38,7 +39,15 @@ class StudyBuddy extends React.Component {
 
     fetch('http://localhost:3000/newmeet', {
       method: 'POST',
-      body: JSON.stringify(this.state),
+      body: JSON.stringify({
+        place: this.state.place,
+        address: this.state.address,
+        city: this.state.city,
+        state: this.state.state,
+        date: this.state.date,
+        timeFrom: this.state.timeFrom,
+        timeTo: this.state.timeTo,
+      }),
       headers: { 'Content-Type': 'application/json' }
     })
     .then(() => console.log('POST success!'))
@@ -80,7 +89,7 @@ class StudyBuddy extends React.Component {
           </label>
           <label>
             State:
-            <input name="state" type="state" value={this.state.state} onChange={this.handleInputChange} required/>
+            <input name="state" type="state" placeholder="CA" value={this.state.state} maxLength="2" size="3" onChange={this.handleInputChange} required/>
           </label>
           <br />
           <label>
@@ -95,12 +104,15 @@ class StudyBuddy extends React.Component {
             <input name="timeTo" type="time" value={this.state.timeTo} onChange={this.handleInputChange} required/>
           </label>
           <br /><br />
-          <input type="submit" value="Post Meet-up" />
+          <input type="submit" value="Post Meet-up" /> &nbsp;
+          <HomeButton handleHomePageButtonClick={this.props.handleHomePageButtonClick}/>
         </form>
+
 
         <br />
 
         Scheduled Meet-ups:
+        <br /><br />
         <div id="meet-ups">
           {this.state.meetups.map(meetup => <MeetUps info={meetup} key={meetup['_id']}/> )}
         </div>
