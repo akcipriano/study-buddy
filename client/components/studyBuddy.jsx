@@ -6,6 +6,7 @@ class StudyBuddy extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      message: '',
       place: '',
       address: '',
       city: '',
@@ -40,6 +41,7 @@ class StudyBuddy extends React.Component {
     fetch('http://localhost:3000/newmeet', {
       method: 'POST',
       body: JSON.stringify({
+        message: this.state.message,
         place: this.state.place,
         address: this.state.address,
         city: this.state.city,
@@ -54,6 +56,7 @@ class StudyBuddy extends React.Component {
     .catch(error => console.error('Error:', error))
 
     this.setState({
+      message: '',
       place: '',
       address: '',
       city: '',
@@ -73,6 +76,10 @@ class StudyBuddy extends React.Component {
 
         Post below if you would like to set up a meet:
         <br /><br />
+           <label>
+            <textarea rows="4" cols="40" name="message" type="text" placeholder="Optional Message" value={this.state.message} onChange={this.handleInputChange}/>
+          </label>
+          <br />
           <label>
             Place:
             <input name="place" type="text" placeholder="ex: Starbucks on Main" value={this.state.place} onChange={this.handleInputChange} required/>
@@ -105,11 +112,10 @@ class StudyBuddy extends React.Component {
           </label>
           <br /><br />
           <input type="submit" value="Post Meet-up" /> &nbsp;
-          <HomeButton handleHomePageButtonClick={this.props.handleHomePageButtonClick}/>
         </form>
 
-
-        <br />
+          <HomeButton handleHomePageButtonClick={this.props.handleHomePageButtonClick}/>
+        <br /><br />
 
         Scheduled Meet-ups:
         <br /><br />
