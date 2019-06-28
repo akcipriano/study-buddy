@@ -11,13 +11,14 @@ const MeetUps = (props) => {
     if (props.info.message !== '') {
       return (
         <div>
-        {props.info.message} <br />
+        <i>{props.info.message}</i> <br />
         {props.info.subject} <br />
-        {props.info.place} <br />
+        <strong>{props.info.place}</strong> <br />
         {props.info.address} <br />
         {props.info.city}, {state} <br />
-        {date} <br />
-        {timeFrom} to {timeTo}
+        <strong>{date}</strong> <br />
+        {timeFrom} to {timeTo} <br />
+        ___________________________________
         <br /><br />
       </div>
       )
@@ -25,11 +26,12 @@ const MeetUps = (props) => {
       return (
         <div>
         {props.info.subject} <br />
-        {props.info.place} <br />
+        <strong>{props.info.place}</strong> <br />
         {props.info.address} <br />
         {props.info.city}, {state} <br />
-        {date} <br />
-        {timeFrom} to {timeTo}
+        <strong>{date}</strong> <br />
+        {timeFrom} to {timeTo} <br />
+        ___________________________________
         <br /><br />
       </div>
       )
@@ -38,23 +40,25 @@ const MeetUps = (props) => {
     if (props.info.message) {
       return (
         <div>
-        {props.info.message} <br />
-        {props.info.place} <br />
+        <i>{props.info.message}</i> <br />
+        <strong>{props.info.place}</strong> <br />
         {props.info.address} <br />
         {props.info.city}, {state} <br />
-        {date} <br />
-        {timeFrom} to {timeTo}
+        <strong>{date}</strong> <br />
+        {timeFrom} to {timeTo} <br />
+        ___________________________________
         <br /><br />
       </div>
       )
     } else {
       return (
         <div>
-        {props.info.place} <br />
+        <strong>{props.info.place}</strong> <br />
         {props.info.address} <br />
         {props.info.city}, {state} <br />
-        {date} <br />
-        {timeFrom} to {timeTo}
+        <strong>{date}</strong> <br />
+        {timeFrom} to {timeTo} <br />
+        ___________________________________
         <br /><br />
       </div>
       )
