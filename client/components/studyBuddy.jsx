@@ -1,6 +1,29 @@
 import React from'react';
+import styled from 'styled-components'
 import MeetUps from './meetUps.jsx';
 import HomeButton from './homeButton.jsx';
+
+const Main = styled.div`
+  @import url('https://fonts.googleapis.com/css?family=Raleway:300,400&display=swap');
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.1em;
+  font-weight: 400;
+  margin: 50px 125px;
+`;
+
+const Posts = styled.div`
+  font-size: 0.9em;
+  font-weight: 300;
+`;
+
+const Submit = styled.input`
+  color: black;
+  font-size: 0.7em;
+  font-weight: 300;
+  padding: 0.25em 1em;
+  border: 1.3px solid black;
+  border-radius: 2px;
+`;
 
 class StudyBuddy extends React.Component {
   constructor(props) {
@@ -72,58 +95,59 @@ class StudyBuddy extends React.Component {
   render() {
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
-
-        Post below if you would like to set up a meet:
-        <br /><br />
-           <label>
-            <textarea rows="4" cols="40" name="message" type="text" placeholder="Optional Message" value={this.state.message} onChange={this.handleInputChange}/>
-          </label>
-          <br />
-          <label>
-            Place:
-            <input name="place" type="text" placeholder="ex: Starbucks on Main" value={this.state.place} onChange={this.handleInputChange} required/>
-          </label>
-          <br />
-          <label>
-            Address:
-            <input name="address" type="text" value={this.state.address} onChange={this.handleInputChange} required/>
-          </label>
-          <br />
-          <label>
-            City:
-            <input name="city" type="text" value={this.state.city} onChange={this.handleInputChange} required/>
-          </label>
-          <label>
-            State:
-            <input name="state" type="state" placeholder="CA" value={this.state.state} maxLength="2" size="3" onChange={this.handleInputChange} required/>
-          </label>
-          <br />
-          <label>
-            Date:
-            <input name="date" type="date" value={this.state.date} onChange={this.handleInputChange} required/>
-          </label>
-          <br />
-          <label>
-            From &nbsp;
-            <input name="timeFrom" type="time" value={this.state.timeFrom} onChange={this.handleInputChange} required/>
-            &nbsp; to &nbsp;
-            <input name="timeTo" type="time" value={this.state.timeTo} onChange={this.handleInputChange} required/>
-          </label>
+        <HomeButton handleHomePageButtonClick={this.props.handleHomePageButtonClick}/>
+        <Main>
+          <form onSubmit={this.handleSubmit}>
+          <strong><u>Post below if you would like to set up a meet:</u></strong>
           <br /><br />
-          <input type="submit" value="Post Meet-up" /> &nbsp;
-        </form>
+            <label>
+              <textarea rows="4" cols="40" name="message" type="text" placeholder="Optional Message" value={this.state.message} onChange={this.handleInputChange}/>
+            </label>
+            <br />
+            <label>
+              Place:&nbsp;
+              <input name="place" type="text" placeholder="ex: Starbucks on Main" value={this.state.place} onChange={this.handleInputChange} required/>
+            </label>
+            <br />
+            <label>
+              Address:&nbsp;
+              <input name="address" type="text" value={this.state.address} onChange={this.handleInputChange} required/>
+            </label>
+            <br />
+            <label>
+              City:&nbsp;
+              <input name="city" type="text" value={this.state.city} onChange={this.handleInputChange} required/>
+            </label>
+            <label>
+              State:&nbsp;
+              <input name="state" type="state" placeholder="CA" value={this.state.state} maxLength="2" size="3" onChange={this.handleInputChange} required/>
+            </label>
+            <br />
+            <label>
+              Date:&nbsp;
+              <input name="date" type="date" value={this.state.date} onChange={this.handleInputChange} required/>
+            </label>
+            <br />
+            <label>
+              From &nbsp;
+              <input name="timeFrom" type="time" value={this.state.timeFrom} onChange={this.handleInputChange} required/>
+              &nbsp; to &nbsp;
+              <input name="timeTo" type="time" value={this.state.timeTo} onChange={this.handleInputChange} required/>
+            </label>
+            <br /><br />
+            <Submit type="submit" value="Post Meet-up" /> &nbsp;
+          </form>
+          <br /><br /><br />
 
-          <HomeButton handleHomePageButtonClick={this.props.handleHomePageButtonClick}/>
-        <br /><br />
-
-        Scheduled Meet-ups:
-        <br /><br />
-        <div id="meet-ups">
-          {this.state.meetups.map(meetup => <MeetUps info={meetup} key={meetup['_id']}/> )}
-        </div>
-
-      </div>
+          <strong><u>Scheduled Meet-ups:</u></strong>
+          <Posts>
+            <br />
+            <div id="meet-ups">
+              {this.state.meetups.map(meetup => <MeetUps info={meetup} key={meetup['_id']}/> )}
+            </div>
+          </Posts>
+        </Main>
+    </div>
     )
   }
 }
