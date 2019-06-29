@@ -115,7 +115,7 @@ class Math extends React.Component {
             <br />
             <label>
               Topic:&nbsp;
-              <input name="topic" type="text" placeholder="Algebra" value={this.state.topic} onChange={this.handleInputChange} required/>
+              <input name="topic" type="text" placeholder="ex: Algebra" value={this.state.topic} onChange={this.handleInputChange} required/>
             </label>
             <br />
             <label>
