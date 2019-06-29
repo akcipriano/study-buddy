@@ -52,7 +52,6 @@ class Math extends React.Component {
     }).then(res => res.json())
     .then(response => {
       this.setState({ meetups: response.reverse()})
-      console.log('Math meets', this.state.meetups);
     })
     .catch(error => console.error('Error:', error))
   }
@@ -158,7 +157,6 @@ class Math extends React.Component {
             <br />
             <div>
               {this.state.meetups.map(meetup => <MeetUps info={meetup} key={meetup['_id']}/> )}
-              {/* {this.state.meetups[0].message} */}
             </div>
           </Posts>
         </Main>
