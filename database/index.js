@@ -8,22 +8,20 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, db) => {
   database = db.db('study-buddy');
   database.createCollection('meetups', (err, res) => {
     if (err) throw err;
-    console.log('Collection created!');
+    console.log('Meetups Collection created!');
+  });
+  database.createCollection('mathmeetups', (err, res) => {
+    if (err) throw err;
+    console.log('Math Collection created!');
   });
 });
 
 const save = (data, collection, callback) => {
-  // MongoClient.connect(url, {useNewUrlParser: true}, (err, db) => {
-  //   if (err) console.error('db save error:', err);
-    database.collection(collection).insertOne(data, callback);
-  // });
+  database.collection(collection).insertOne(data, callback);
 }
 
 const findAll = (collection, callback) => {
-  // MongoClient.connect(url, {useNewUrlParser: true}, (err, db) => {
-  //   if (err) console.error('db find all:', err);
-    database.collection(collection).find({}).toArray(callback);
-  // });
+  database.collection(collection).find({}).toArray(callback);
 }
 
 module.exports = {

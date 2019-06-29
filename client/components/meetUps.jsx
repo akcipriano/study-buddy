@@ -7,15 +7,17 @@ const MeetUps = (props) => {
   const timeTo = convert(props.info.timeTo);
   const state = props.info.state.toUpperCase();
 
-  if (props.info.subject) {
+  const urlString = `${props.info.address}, ${props.info.city}, ${state}`
+  const encodedURI = encodeURI(urlString);
+
+  if (props.info.topic) {
     if (props.info.message !== '') {
       return (
         <div>
         <i>{props.info.message}</i> <br />
-        {props.info.subject} <br />
+        {props.info.topic} <br />
         <strong>{props.info.place}</strong> <br />
-        {props.info.address} <br />
-        {props.info.city}, {state} <br />
+        <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodedURI}`} target="_blank"> {props.info.address}, {props.info.city}, {state} </a><br />
         <strong>{date}</strong> <br />
         {timeFrom} to {timeTo} <br />
         ___________________________________
@@ -25,10 +27,9 @@ const MeetUps = (props) => {
     } else {
       return (
         <div>
-        {props.info.subject} <br />
+        {props.info.topic} <br />
         <strong>{props.info.place}</strong> <br />
-        {props.info.address} <br />
-        {props.info.city}, {state} <br />
+        <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodedURI}`} target="_blank"> {props.info.address}, {props.info.city}, {state} </a><br />
         <strong>{date}</strong> <br />
         {timeFrom} to {timeTo} <br />
         ___________________________________
@@ -38,12 +39,12 @@ const MeetUps = (props) => {
     }
   } else {
     if (props.info.message) {
+
       return (
         <div>
         <i>{props.info.message}</i> <br />
         <strong>{props.info.place}</strong> <br />
-        {props.info.address} <br />
-        {props.info.city}, {state} <br />
+        <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodedURI}`} target="_blank"> {props.info.address}, {props.info.city}, {state} </a><br />
         <strong>{date}</strong> <br />
         {timeFrom} to {timeTo} <br />
         ___________________________________
@@ -54,8 +55,7 @@ const MeetUps = (props) => {
       return (
         <div>
         <strong>{props.info.place}</strong> <br />
-        {props.info.address} <br />
-        {props.info.city}, {state} <br />
+        <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodedURI}`} target="_blank"> {props.info.address}, {props.info.city}, {state} </a><br />
         <strong>{date}</strong> <br />
         {timeFrom} to {timeTo} <br />
         ___________________________________
