@@ -8,7 +8,7 @@ import FindTutor from './components/findTutor.jsx';
 const Main = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Raleway:300,400&display=swap');
   font-family: 'Raleway', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: 400;
   margin: 50px 125px;
   align: center;
@@ -17,14 +17,13 @@ const Main = styled.div`
 const Button = styled.button`
   color: black;
   margin: 1em;
-  font-size: 1em;
+  font-size: .5em;
   font-weight: 300;
   padding: 0.25em 1em;
   border: 2px solid black;
   border-radius: 2px;
   align: center;
 `;
-
 
 class Homepage extends React.Component {
   constructor(props) {
