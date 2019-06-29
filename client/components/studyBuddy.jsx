@@ -98,7 +98,7 @@ class StudyBuddy extends React.Component {
         <HomeButton handleHomePageButtonClick={this.props.handleHomePageButtonClick}/>
         <Main>
           <form onSubmit={this.handleSubmit}>
-          <strong><u>Post below if you would like to set up a meet:</u></strong>
+          <strong><u>Set up a meet:</u></strong>
           <br /><br />
             <label>
               <textarea rows="4" cols="40" name="message" type="text" placeholder="Optional Message" value={this.state.message} onChange={this.handleInputChange}/>
