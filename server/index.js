@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.post('/newmeet', (req, res) => {
-  console.log('BODY', req.body);
+  console.log('POSTED meet up', req.body);
   db.save(req.body, 'meetups', (err) => {
     if (err) res.status(400).send(err);
     res.status(200).send('Saved to db!');
@@ -20,6 +20,21 @@ app.post('/newmeet', (req, res) => {
 
 app.get('/meetups', (req, res) => {
   db.findAll('meetups', (err, result) => {
+    if (err) res.status(400).send(err);
+    res.status(200).send(result);
+  });
+});
+
+app.post('/mathnewmeet', (req, res) => {
+  console.log('POSTED math meet', req.body);
+  db.save(req.body, 'mathmeetups', (err) => {
+    if (err) res.status(400).send(err);
+    res.status(200).send('Saved to math collection!');
+  });
+});
+
+app.get('/mathmeetups', (req, res) => {
+  db.findAll('mathmeetups', (err, result) => {
     if (err) res.status(400).send(err);
     res.status(200).send(result);
   });
