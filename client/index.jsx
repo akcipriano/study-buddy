@@ -5,13 +5,18 @@ import StudyBuddy from './components/studyBuddy.jsx';
 import StudyBuddyWithSubject from './components/studyBuddyWithSubject.jsx';
 import FindTutor from './components/findTutor.jsx';
 
-const Main = styled.div`
+const MainDiv = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Raleway:300,400&display=swap');
   font-family: 'Raleway', sans-serif;
-  font-size: 1.8em;
+  font-size: 1.2em;
   font-weight: 400;
-  margin: 50px 125px;
   align: center;
+  margin: 8px 12px;
+  `;
+
+  const Main = styled.div`
+  font-size: 1.8em;
+  margin: 50px 125px;
 `;
 
 const Button = styled.button`
@@ -56,19 +61,22 @@ class Homepage extends React.Component {
   render() {
     if (this.state.currentPage === 'homepage') {
       return (
-        <Main>
-          I want to...
-          <br /><br />
-          <Button onClick={this.handleStudyBuddyClick}>
-            Find a Study Buddy
-          </Button> <br />
-          <Button onClick={this.handleStudyBuddyWithSubjectClick}>
-            Find a Study Buddy (specific topic)
-          </Button> <br />
-          <Button onClick={this.handleFindTutorClick}>
-            Find a Tutor
-          </Button>
-        </Main>
+        <MainDiv>
+          Study-Buddy
+          <Main>
+            I want to...
+            <br /><br />
+            <Button onClick={this.handleStudyBuddyClick}>
+              Find a Study Buddy
+            </Button> <br />
+            <Button onClick={this.handleStudyBuddyWithSubjectClick}>
+              Find a Study Buddy (specific topic)
+            </Button> <br />
+            <Button onClick={this.handleFindTutorClick}>
+              Find a Tutor
+            </Button>
+          </Main>
+        </MainDiv>
       )
     }
 
