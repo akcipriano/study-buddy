@@ -2,6 +2,7 @@ import React from'react';
 import styled from 'styled-components'
 import HomeButton from './homeButton.jsx';
 import Math from './math.jsx';
+import Science from './science.jsx';
 
 const Main = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Raleway:300,400&display=swap');
@@ -108,7 +109,10 @@ class StudyBuddyWithSubject extends React.Component {
 
     if (this.state.currentPage === 'science') {
       return (
-        <Science />
+        <Science
+          handleHomePageButtonClick={this.props.handleHomePageButtonClick}
+          handleBackButtonClick={this.handleBackButtonClick}
+        />
       )
     }
 

@@ -40,4 +40,19 @@ app.get('/mathmeetups', (req, res) => {
   });
 });
 
+app.post('/sciencenewmeet', (req, res) => {
+  console.log('POSTED science meet', req.body);
+  db.save(req.body, 'sciencemeetups', (err) => {
+    if (err) res.status(400).send(err);
+    res.status(200).send('Saved to science collection!');
+  });
+});
+
+app.get('/sciencemeetups', (req, res) => {
+  db.findAll('sciencemeetups', (err, result) => {
+    if (err) res.status(400).send(err);
+    res.status(200).send(result);
+  });
+});
+
 app.listen(port, () => {console.log(`Study-Buddy listening on ${port}`)});
